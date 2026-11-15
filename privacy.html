@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy / Datenschutzerklärung — Jumpy Alien</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0d0c1d;
+      --card: #161b33;
+      --accent: #4cc9f0;
+      --accent-soft: rgba(76, 201, 240, 0.14);
+      --border: rgba(76, 201, 240, 0.25);
+      --text: #eef2ff;
+      --muted: #b8c2e0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(circle at top, #182042 0%, var(--bg) 55%);
+      color: var(--text);
+      line-height: 1.65;
+      padding: 24px 16px 64px;
+    }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    header, section, footer {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+      color: #ffffff;
+      line-height: 1.3;
+    }
+    h1 { font-size: 1.85rem; margin-bottom: 8px; }
+    h2 { font-size: 1.3rem; color: var(--accent); margin-bottom: 12px; }
+    h3 { font-size: 1.05rem; margin-top: 18px; margin-bottom: 8px; }
+    a { color: var(--accent); word-break: break-word; }
+    code {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 0.92em;
+    }
+    ul, ol { padding-left: 20px; }
+    li { margin-bottom: 8px; }
+    .meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .pill {
+      display: inline-block;
+      background: var(--accent-soft);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .divider {
+      border: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      margin: 28px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Jumpy Alien — Privacy Policy &amp; Datenschutzerklärung</h1>
+      <p class="meta">
+        Version <strong>2.0.0 (Build 4)</strong> · Bundle ID: <code>com.ahmadrahman.jumpyAlien</code> · Effective Date: 2026-11-14
+      </p>
+      <nav>
+        <a class="pill" href="#english">English</a>
+        <a class="pill" href="#deutsch">Deutsch</a>
+        <a class="pill" href="/support.html">Support</a>
+        <a class="pill" href="/">Home</a>
+      </nav>
+    </header>
+
+    <section id="english">
+      <h2>English — Privacy Policy</h2>
+
+      <h3>1. Summary</h3>
+      <ul>
+        <li><strong>No cross-app tracking / no ATT prompt (IDFA zeroed on iOS):</strong> Jumpy Alien does not include Apple's App Tracking Transparency prompt (<code>NSUserTrackingUsageDescription</code> is omitted from <code>Info.plist</code> and <code>InfoPlist.strings</code>), so iOS returns a zeroed IDFA (<code>00000000-0000-0000-0000-000000000000</code>) and the app performs no developer-initiated cross-app tracking.</li>
+        <li><strong>No user accounts or cloud profiling:</strong> All gameplay progress, high scores, unlocked aliens/trails, and settings remain locally on your device.</li>
+        <li><strong>Non-personalized ads only (with regional UMP consent &amp; Limited Ads support):</strong> Ad-supported runs and optional rewarded videos request only non-personalized ads via Google Mobile Ads (<code>AdRequest(nonPersonalizedAds: true)</code>). Where legally required (e.g., EEA/UK/Switzerland), Google User Messaging Platform (UMP) presents a consent dialog before ad initialization, and you can review or revoke your choice anytime under <strong>Settings → Privacy Settings / Datenschutz</strong>.</li>
+      </ul>
+
+      <h3>2. Information Processed</h3>
+      <p><strong>A. Local Game Data (Stored on Your Device)</strong></p>
+      <ul>
+        <li>Game progress (high scores per mode/difficulty, best planet reached per mode/difficulty, daily challenge &amp; mission state, settings/language) stored locally via iOS preferences (<code>UserDefaults</code> / <code>SharedPreferences</code>).</li>
+        <li>Local virtual economy ledger (coins, revive crystals, unlocked skins/trails, permanent entitlements, verified StoreKit transaction IDs, and a random per-install <code>install_uuid</code> / <code>appAccountToken</code> excluded from iCloud/iTunes backups via <code>NoBackup</code>) stored in environment-isolated local SQLite databases (<code>jumpy_alien_release_sandbox.db</code> / <code>jumpy_alien_release_production.db</code>).</li>
+        <li>Deleting the app removes local preferences and the local SQLite database (durable Apple ID entitlements can be restored via <strong>Restore Purchases</strong>).</li>
+      </ul>
+
+      <p><strong>B. Advertising Data (Google Mobile Ads / UMP)</strong></p>
+      <ul>
+        <li><strong>Non-personalized ads only:</strong> Every Google Mobile Ads request is configured with <code>nonPersonalizedAds: true</code> and child-appropriate <code>MaxAdContentRating.g</code>.</li>
+        <li><strong>Regional consent &amp; Limited Ads (Google UMP):</strong> In supported jurisdictions, Google UMP collects and stores consent choices. Changing or revoking consent in <strong>Settings → Privacy Settings / Datenschutz</strong> immediately disposes all preloaded ads (<code>_interstitial</code> and <code>_rewarded</code>), invalidates any in-flight ad load callbacks from the prior consent epoch so stale ads cannot be cached or shown, and either disables ad requests (<code>canRequestAds == false</code>) or reloads fresh ads matching the updated consent state (such as Limited Ads when <code>canRequestAds == true</code>).</li>
+        <li><strong>SDK-declared signals &amp; Privacy Manifest disclosures:</strong> Although Jumpy Alien omits <code>NSUserTrackingUsageDescription</code> (so iOS returns a zeroed IDFA) and sends <code>nonPersonalizedAds: true</code>, the embedded <code>GoogleMobileAds.framework</code> privacy manifest (<code>PrivacyInfo.xcprivacy</code>) declares SDK capabilities for <code>Device ID</code> (<code>NSPrivacyCollectedDataTypeDeviceID</code>, marked Linked &amp; Tracking at the SDK capability level, e.g., non-IDFA/app-scoped device identifiers or SDK fraud/frequency-capping signals), <code>Coarse Location</code> (IP-derived region), <code>Advertising Data</code>, <code>Product Interaction</code>, <code>Performance Data</code>, <code>Crash Data</code>, and <code>Other Diagnostic Data</code>; <code>UserMessagingPlatform.framework</code> additionally declares <code>Coarse Location</code>, <code>Performance Data</code>, and <code>Product Interaction</code> for consent functionality. Under Limited Ads / non-personalized delivery, processing is restricted to contextual delivery, regional compliance, frequency capping, aggregated reporting, and fraud prevention.</li>
+        <li><strong>Zero interstitials after purchasing Remove Ads / Starter Pack:</strong> Rewarded ads remain strictly opt-in (revive or bonus run coins) and are only offered when an ad is preloaded and eligible.</li>
+      </ul>
+
+      <p><strong>C. In-App Purchases (Apple StoreKit 2)</strong></p>
+      <ul>
+        <li>All payments are processed directly by <strong>Apple StoreKit 2</strong> using your Apple ID.</li>
+        <li><strong>Permanent / Non-Consumable perks</strong> (<code>remove_ads</code>, <code>double_coins</code>, and durable perks of <code>starter_bundle</code> — Mecha-Alien skin &amp; permanent Remove Ads) are linked to your Apple ID and restorable across devices or reinstallations via <strong>Restore Purchases</strong> (<code>AppStore.sync()</code>). Entitlements are reconciled automatically on launch and app resume, including refunds/revocations.</li>
+        <li><strong>Consumables</strong> (<code>coins_small</code>, <code>coins_medium</code>, <code>coins_large</code>, plus one-time Starter Pack 3,000 coins &amp; 5 revive crystals) are credited locally on the active installation. A backup-excluded per-install UUID (<code>appAccountToken</code>) is attached to StoreKit purchases where supported to correlate uncredited transactions safely on that installation.</li>
+        <li>We never see or store your credit card, billing address, or Apple ID password.</li>
+      </ul>
+
+      <h3>3. Children's &amp; Family Considerations</h3>
+      <p>Jumpy Alien requests family-friendly ads (<code>MaxAdContentRating.g</code>), does not use behavioral profiling or IDFA tracking, and does not collect personal profiles, names, emails, or precise GPS location data.</p>
+
+      <h3>4. Your Rights &amp; Choices</h3>
+      <ol>
+        <li><strong>Review or revoke ad consent anytime:</strong> Open <strong>Settings → Privacy Settings / Datenschutz</strong> to reopen the Google UMP privacy options form.</li>
+        <li><strong>Privacy Policy link, summary &amp; ad reporting in-app:</strong> Open <strong>Settings</strong> for the direct <strong>Privacy Policy (Online)</strong> link, the built-in summary, and <strong>Report Inappropriate Ad</strong> guidance (plus AdChoices inside ad overlays).</li>
+        <li><strong>Remove non-optional interstitials:</strong> Purchasing <strong>Remove Ads</strong> or the <strong>Cosmic Starter Pack</strong> permanently disables interstitial ads.</li>
+        <li><strong>Restore or support for IAPs:</strong> Use <strong>Restore Purchases</strong> for Apple ID-linked non-consumables, or contact support with your Apple receipt (<code>reportaproblem.apple.com</code>) and the installation ID shown in <strong>Settings</strong>.</li>
+      </ol>
+
+      <h3>5. Third-Party Privacy Links</h3>
+      <ul>
+        <li>Google Privacy Policy: <a href="https://policies.google.com/privacy" rel="noopener noreferrer">https://policies.google.com/privacy</a></li>
+        <li>Google AdMob Partner Data Policy: <a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer">https://policies.google.com/technologies/partner-sites</a></li>
+        <li>Apple Privacy Policy: <a href="https://www.apple.com/legal/privacy/" rel="noopener noreferrer">https://www.apple.com/legal/privacy/</a></li>
+      </ul>
+
+      <h3>6. Controller, Contact &amp; Official URLs</h3>
+      <ul>
+        <li><strong>Developer / Controller:</strong> Ahmad Rahman</li>
+        <li><strong>Support &amp; Privacy Email:</strong> <a href="mailto:arstudio.dev1@gmail.com">arstudio.dev1@gmail.com</a></li>
+        <li><strong>Privacy Policy URL:</strong> <a href="https://ahmadrhm-de.github.io/privacy.html">https://ahmadrhm-de.github.io/privacy.html</a></li>
+        <li><strong>Support URL:</strong> <a href="https://ahmadrhm-de.github.io/support.html">https://ahmadrhm-de.github.io/support.html</a></li>
+        <li><strong>Developer Site &amp; <code>app-ads.txt</code>:</strong> <a href="https://ahmadrhm-de.github.io/">https://ahmadrhm-de.github.io/</a> · <a href="https://ahmadrhm-de.github.io/app-ads.txt">https://ahmadrhm-de.github.io/app-ads.txt</a></li>
+      </ul>
+    </section>
+
+    <section id="deutsch">
+      <h2>Deutsch — Datenschutzerklärung</h2>
+
+      <h3>1. Überblick &amp; Verantwortlicher</h3>
+      <p>
+        Verantwortlicher für die Datenverarbeitung im Sinne der DSGVO im Zusammenhang mit der iOS-/iPadOS-App <strong>Jumpy Alien</strong> (<code>com.ahmadrahman.jumpyAlien</code>):<br>
+        <strong>Ahmad Rahman</strong> · E-Mail: <a href="mailto:arstudio.dev1@gmail.com">arstudio.dev1@gmail.com</a>
+      </p>
+      <ul>
+        <li><strong>Kein App-übergreifendes Tracking / kein ATT-Prompt (IDFA auf iOS genullt):</strong> Jumpy Alien verzichtet auf Apples App Tracking Transparency (<code>NSUserTrackingUsageDescription</code> ist nicht enthalten), sodass iOS lediglich eine genullte IDFA (<code>00000000-0000-0000-0000-000000000000</code>) bereitstellt und kein entwicklerseitiges Cross-App-Tracking erfolgt.</li>
+        <li><strong>Keine Benutzerkonten &amp; kein Cloud-Profil:</strong> Spielstände, Highscores, freigeschaltete Skins/Trails und App-Einstellungen bleiben ausschließlich lokal auf deinem Gerät.</li>
+        <li><strong>Nur nicht-personalisierte Werbung (mit regionaler UMP-Einwilligung &amp; Limited Ads):</strong> Anzeigen werden ausschließlich mit <code>AdRequest(nonPersonalizedAds: true)</code> und altersgerechter Einstufung (<code>MaxAdContentRating.g</code>) angefordert. Im EWR/UK/Schweiz erscheint vorab der Einwilligungsdialog von Google UMP, der jederzeit unter <strong>Einstellungen → Datenschutz</strong> geändert oder widerrufen werden kann.</li>
+      </ul>
+
+      <h3>2. Verarbeitete Daten im Detail</h3>
+      <ul>
+        <li><strong>Lokale Spiel- &amp; Wirtschaftsdaten (Art. 6 Abs. 1 lit. b DSGVO / Vertragserfüllung):</strong> Highscores, Einstellungen und Challenge-Fortschritt liegen lokal in <code>UserDefaults</code>; Münzen, Wiederbelebungskristalle, Skins, Trails und verifizierte StoreKit-2-Transaktionen liegen lokal in isolierten SQLite-Datenbanken (<code>jumpy_alien_release_production.db</code> / <code>sandbox</code>) zusammen mit einer vom Backup ausgeschlossenen zufälligen Installations-UUID (<code>install_uuid</code> / <code>appAccountToken</code> im Verzeichnis <code>NoBackup</code>).</li>
+        <li><strong>Werbung &amp; Einwilligungsverwaltung (Google Mobile Ads &amp; Google UMP, Art. 6 Abs. 1 lit. a / f DSGVO):</strong> Beim Widerruf oder Ändern der Einwilligung unter <strong>Einstellungen → Datenschutz</strong> werden alle vorab geladenen Anzeigen sofort verworfen und verspätete Lade-Callbacks veralteter Epochen blockiert, bevor ggf. frische Anzeigen gemäß dem neuen Consent-Status (inklusive Limited Ads) geladen werden. Gemäß eingebetteten SDK-Privacy-Manifesten (<code>GoogleMobileAds.framework</code> &amp; <code>UserMessagingPlatform.framework</code>) verarbeitet Google auf SDK-Ebene technisch u. a. Geräte-IDs (<code>NSPrivacyCollectedDataTypeDeviceID</code>), groben Standort (IP-Region), Werbe-/Interaktionsdaten sowie Performance-, Diagnose- und Absturzdaten zur Auslieferung, Frequenzbegrenzung, regionalen Rechtskonformität und Betrugsprävention.</li>
+        <li><strong>In-App-Käufe über Apple StoreKit 2:</strong> Zahlungen laufen direkt über Apple. Dauerhafte Vorteile (<code>remove_ads</code>, <code>double_coins</code>, sowie Mecha-Skin &amp; Werbung-entfernen des <code>starter_bundle</code>) sind an deine Apple-ID gebunden und per <strong>Käufe wiederherstellen</strong> abrufbar; Verbrauchsartikel (Münzpakete &amp; Starter-Münzen/-Kristalle) werden der aktiven Installation gutgeschrieben. Wir erhalten niemals Kreditkartendaten, Rechnungsadresse oder Apple-ID-Passwort.</li>
+      </ul>
+
+      <h3>3. Deine Rechte &amp; Kontakt</h3>
+      <p>
+        Du kannst erteilte Werbeeinwilligungen jederzeit über <strong>Einstellungen → Datenschutz</strong> in der App widerrufen oder anpassen sowie Auskunft, Berichtigung, Löschung oder Beschwerde bei einer Datenschutzaufsichtsbehörde geltend machen. Lokale App-Daten werden beim Löschen der App vom Gerät entfernt.
+      </p>
+      <p>
+        Kontakt für Datenschutz- und Support-Anfragen: <strong>Ahmad Rahman</strong> · <a href="mailto:arstudio.dev1@gmail.com">arstudio.dev1@gmail.com</a> · <a href="/support.html">Support-Seite</a>
+      </p>
+    </section>
+
+    <footer>
+      <p class="meta">
+        © 2026 Ahmad Rahman · Jumpy Alien (<code>com.ahmadrahman.jumpyAlien</code>) ·
+        <a href="/">Home</a> ·
+        <a href="/support.html">Support</a> ·
+        <a href="/privacy.html">Privacy</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

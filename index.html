@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jumpy Alien — Official Arcade Space Hopper for iPhone &amp; iPad</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0d0c1d;
+      --card: #161b33;
+      --accent: #4cc9f0;
+      --gold: #ffd166;
+      --border: rgba(76, 201, 240, 0.25);
+      --text: #eef2ff;
+      --muted: #b8c2e0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(circle at top, #182042 0%, var(--bg) 55%);
+      color: var(--text);
+      line-height: 1.65;
+      padding: 28px 16px 64px;
+    }
+    .container { max-width: 820px; margin: 0 auto; }
+    .hero, section, footer {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px;
+      margin-bottom: 20px;
+    }
+    h1 { margin: 0 0 10px; font-size: 2rem; color: #ffffff; }
+    h2 { margin-top: 0; font-size: 1.25rem; color: var(--accent); }
+    a { color: var(--accent); }
+    .muted { color: var(--muted); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      background: rgba(76, 201, 240, 0.14);
+      color: var(--accent);
+    }
+    .btn.primary {
+      background: var(--gold);
+      color: #011627;
+      border-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <h1>Jumpy Alien 2.0</h1>
+      <p class="muted">
+        Tap, aim, and launch across rotating cosmic planets in 4 game modes (Classic, Time Rush, Singularity Chase &amp; Daily Challenge) on iPhone &amp; iPad.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="/privacy.html">Privacy Policy / Datenschutzerklärung</a>
+        <a class="btn" href="/support.html">Support &amp; FAQ</a>
+      </div>
+    </div>
+
+    <section>
+      <h2>Developer &amp; App Info</h2>
+      <ul>
+        <li><strong>Developer:</strong> Ahmad Rahman</li>
+        <li><strong>Support Email:</strong> <a href="mailto:arstudio.dev1@gmail.com">arstudio.dev1@gmail.com</a></li>
+        <li><strong>Bundle Identifier:</strong> <code>com.ahmadrahman.jumpyAlien</code></li>
+        <li><strong>Privacy Policy:</strong> <a href="/privacy.html">https://ahmadrhm-de.github.io/privacy.html</a></li>
+        <li><strong>Support:</strong> <a href="/support.html">https://ahmadrhm-de.github.io/support.html</a></li>
+        <li><strong>app-ads.txt:</strong> <a href="/app-ads.txt">https://ahmadrhm-de.github.io/app-ads.txt</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p class="muted">© 2026 Ahmad Rahman · Jumpy Alien</p>
+    </footer>
+  </div>
+</body>
+</html>
