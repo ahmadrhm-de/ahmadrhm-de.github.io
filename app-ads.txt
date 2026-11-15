@@ -1,4 +1,2 @@
 # Jumpy Alien (com.ahmadrahman.jumpyAlien) app-ads.txt
-# Before switching to live Google AdMob ads (ADMOB_RELEASE_LIVE_ADS=true),
-# uncomment the line below and replace pub-0000000000000000 with your real AdMob Publisher ID:
-# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+google.com, pub-2536703868960893, DIRECT, f08c47fec0942fa0
