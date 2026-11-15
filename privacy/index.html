@@ -42,7 +42,7 @@
     }
     h1 { font-size: 1.85rem; margin-bottom: 8px; }
     h2 { font-size: 1.3rem; color: var(--accent); margin-bottom: 12px; }
-    h3 { font-size: 1.05rem; margin-top: 18px; margin-bottom: 8px; }
+    h3 { font-size: 1.05rem; margin-top: 20px; margin-bottom: 8px; }
     a { color: var(--accent); word-break: break-word; }
     code {
       background: rgba(255, 255, 255, 0.08);
@@ -74,11 +74,6 @@
       font-size: 0.9rem;
       font-weight: 600;
     }
-    .divider {
-      border: 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-      margin: 28px 0;
-    }
   </style>
 </head>
 <body>
@@ -86,7 +81,7 @@
     <header>
       <h1>Jumpy Alien — Privacy Policy &amp; Datenschutzerklärung</h1>
       <p class="meta">
-        Version <strong>2.0.0 (Build 4)</strong> · Bundle ID: <code>com.ahmadrahman.jumpyAlien</code> · Effective Date: 2026-11-14
+        Version <strong>2.0.0 (Build 4)</strong> · Bundle ID: <code>com.ahmadrahman.jumpyAlien</code> · Effective Date / Stand: 2026-11-15
       </p>
       <nav>
         <a class="pill" href="#english">English</a>
@@ -97,58 +92,96 @@
     </header>
 
     <section id="english">
-      <h2>English — Privacy Policy</h2>
+      <h2>English — Privacy Policy (Art. 13 GDPR &amp; § 25 TDDDG)</h2>
 
-      <h3>1. Summary</h3>
+      <h3>1. Controller &amp; Summary</h3>
+      <p>
+        <strong>Controller (Art. 4(7) GDPR):</strong> Ahmad Rahman · Contact Email: <a href="mailto:arstudio.dev1@gmail.com">arstudio.dev1@gmail.com</a>
+      </p>
       <ul>
         <li><strong>No cross-app tracking / no ATT prompt (IDFA zeroed on iOS):</strong> Jumpy Alien does not include Apple's App Tracking Transparency prompt (<code>NSUserTrackingUsageDescription</code> is omitted from <code>Info.plist</code> and <code>InfoPlist.strings</code>), so iOS returns a zeroed IDFA (<code>00000000-0000-0000-0000-000000000000</code>) and the app performs no developer-initiated cross-app tracking.</li>
         <li><strong>No user accounts or cloud profiling:</strong> All gameplay progress, high scores, unlocked aliens/trails, and settings remain locally on your device.</li>
         <li><strong>Non-personalized ads only (with regional UMP consent &amp; Limited Ads support):</strong> Ad-supported runs and optional rewarded videos request only non-personalized ads via Google Mobile Ads (<code>AdRequest(nonPersonalizedAds: true)</code>). Where legally required (e.g., EEA/UK/Switzerland), Google User Messaging Platform (UMP) presents a consent dialog before ad initialization, and you can review or revoke your choice anytime under <strong>Settings → Privacy Settings / Datenschutz</strong>.</li>
       </ul>
 
-      <h3>2. Information Processed</h3>
-      <p><strong>A. Local Game Data (Stored on Your Device)</strong></p>
+      <h3>2. Information Processed, Legal Bases &amp; Device Storage (§ 25 TDDDG / Art. 6 GDPR)</h3>
+
+      <p><strong>A. Local Game Data &amp; Strictly Necessary Device Storage (§ 25 Abs. 2 Nr. 2 TDDDG, Art. 6(1)(b) GDPR)</strong></p>
       <ul>
         <li>Game progress (high scores per mode/difficulty, best planet reached per mode/difficulty, daily challenge &amp; mission state, settings/language) stored locally via iOS preferences (<code>UserDefaults</code> / <code>SharedPreferences</code>).</li>
         <li>Local virtual economy ledger (coins, revive crystals, unlocked skins/trails, permanent entitlements, verified StoreKit transaction IDs, and a random per-install <code>install_uuid</code> / <code>appAccountToken</code> excluded from iCloud/iTunes backups via <code>NoBackup</code>) stored in environment-isolated local SQLite databases (<code>jumpy_alien_release_sandbox.db</code> / <code>jumpy_alien_release_production.db</code>).</li>
-        <li>Deleting the app removes local preferences and the local SQLite database (durable Apple ID entitlements can be restored via <strong>Restore Purchases</strong>).</li>
+        <li>Local storage of your UMP consent status so the app remembers your privacy choice.</li>
+        <li><strong>§ 25 Abs. 2 Nr. 2 TDDDG:</strong> Accessing and storing these local game, preference, consent, and purchase-ledger files on your device is strictly necessary to provide the game features and in-app purchase fulfillment you explicitly requested and therefore does not require separate device-storage consent. Deleting the app removes local preferences and the local SQLite database (durable Apple ID entitlements can be restored via <strong>Restore Purchases</strong>).</li>
       </ul>
 
-      <p><strong>B. Advertising Data (Google Mobile Ads / UMP)</strong></p>
+      <p><strong>B. Advertising &amp; Consent Management (Google Mobile Ads / UMP — § 25 Abs. 1 TDDDG, Art. 6(1)(a) &amp; Art. 6(1)(f) GDPR)</strong></p>
       <ul>
-        <li><strong>Non-personalized ads vs. Limited Ads (<code>AdRequest(nonPersonalizedAds: true)</code> &amp; UMP):</strong> Every Google Mobile Ads request sets <code>nonPersonalizedAds: true</code> and child-appropriate <code>MaxAdContentRating.g</code> (no behavioral profiling). Standard <strong>Non-Personalized Ads (NPA)</strong> (when required regional storage consent is granted) use contextual signals and local storage/identifiers for <strong>frequency capping</strong>, aggregated reporting, and fraud prevention. When a user declines local storage in EEA/UK/Switzerland and UMP permits <strong>Limited Ads</strong> (<code>canRequestAds == true</code>), Google Mobile Ads accesses no local identifiers or cookies (and performs <strong>no SDK-side frequency capping</strong>), operating strictly under contextual delivery and security/fraud-prevention signals.</li>
+        <li><strong>§ 25 Abs. 1 TDDDG &amp; Art. 6(1)(a) GDPR (Standard Non-Personalized Ads):</strong> Accessing or storing non-strictly-necessary advertising identifiers/local storage on your device (e.g., for frequency capping, aggregated reporting, and ad-delivery measurement) occurs in the EEA/UK/Switzerland only after your prior informed consent via Google UMP.</li>
+        <li><strong>Non-personalized ads vs. Limited Ads (<code>AdRequest(nonPersonalizedAds: true)</code> &amp; UMP):</strong> Every Google Mobile Ads request sets <code>nonPersonalizedAds: true</code> and child-appropriate <code>MaxAdContentRating.g</code> (no behavioral profiling). Standard <strong>Non-Personalized Ads (NPA)</strong> (when required regional storage consent is granted) use contextual signals and local storage/identifiers for <strong>frequency capping</strong>, aggregated reporting, and fraud prevention. When a user declines local storage in EEA/UK/Switzerland and UMP permits <strong>Limited Ads</strong> (<code>canRequestAds == true</code>), Google Mobile Ads accesses no local identifiers or cookies (and performs <strong>no SDK-side frequency capping</strong>), operating strictly under contextual delivery and security/fraud-prevention signals based on Art. 6(1)(f) GDPR (legitimate interest in ad-funded app operation and invalid-traffic/fraud defense).</li>
         <li><strong>Regional consent &amp; post-timeout reconciliation (Google UMP):</strong> In supported jurisdictions, Google UMP collects and stores consent choices at startup and under <strong>Settings → Privacy Settings / Datenschutz</strong>. Completing, updating, or revoking consent in the initial UMP dialog (even if dismissed after the 20-second startup timeout) or in <strong>Settings → Privacy Settings / Datenschutz</strong> immediately disposes all preloaded ads (<code>_interstitial</code> and <code>_rewarded</code>), invalidates any in-flight ad load callbacks from the prior consent epoch so stale ads cannot be cached or shown, and either disables ad requests (<code>canRequestAds == false</code>) or reloads fresh ads matching the updated consent state.</li>
         <li><strong>SDK-declared signals &amp; Privacy Manifest disclosures:</strong> Although Jumpy Alien omits <code>NSUserTrackingUsageDescription</code> (so iOS returns a zeroed IDFA) and sends <code>nonPersonalizedAds: true</code>, the embedded Google SDK privacy manifests — <code>GoogleMobileAdsResources.bundle/PrivacyInfo.xcprivacy</code> (<code>GoogleMobileAds.framework</code> 12.14.0) and <code>UserMessagingPlatformResources.bundle/PrivacyInfo.xcprivacy</code> (<code>UserMessagingPlatform.framework</code> 3.1.0) — declare SDK-level capabilities including <code>Device ID</code> (<code>NSPrivacyCollectedDataTypeDeviceID</code>, marked Linked &amp; Tracking at Google's SDK manifest level), <code>Coarse Location</code> (IP-derived region), <code>Advertising Data</code>, <code>Product Interaction</code>, <code>Performance Data</code>, <code>Crash Data</code>, and <code>Other Diagnostic Data</code>. Note that omitting ATT alone does not override SDK-level manifest declarations.</li>
         <li><strong>Zero interstitials after purchasing Remove Ads / Starter Pack:</strong> Rewarded ads remain strictly opt-in (revive or bonus run coins) and are only offered when an ad is preloaded and eligible.</li>
       </ul>
 
-      <p><strong>C. In-App Purchases (Apple StoreKit 2)</strong></p>
+      <p><strong>C. In-App Purchases &amp; Statutory Withdrawal Notice (Apple StoreKit 2 — Art. 6(1)(b) GDPR)</strong></p>
       <ul>
-        <li>All payments are processed directly by <strong>Apple StoreKit 2</strong> using your Apple ID.</li>
+        <li>All payments are processed directly by <strong>Apple Distribution International Ltd.</strong> / <strong>Apple Inc.</strong> via <strong>Apple StoreKit 2</strong> using your Apple ID (Art. 6(1)(b) GDPR).</li>
         <li><strong>Permanent / Non-Consumable perks</strong> (<code>remove_ads</code>, <code>double_coins</code>, and durable perks of <code>starter_bundle</code> — Mecha-Alien skin &amp; permanent Remove Ads) are linked to your Apple ID and restorable across devices or reinstallations via <strong>Restore Purchases</strong> (<code>AppStore.sync()</code>). Entitlements are reconciled automatically on launch and app resume, including refunds/revocations.</li>
         <li><strong>Consumables</strong> (<code>coins_small</code>, <code>coins_medium</code>, <code>coins_large</code>, plus one-time Starter Pack 3,000 coins &amp; 5 revive crystals) are credited locally on the active installation. A backup-excluded per-install UUID (<code>appAccountToken</code>) is attached to StoreKit purchases where supported to correlate uncredited transactions safely on that installation.</li>
         <li>We never see or store your credit card, billing address, or Apple ID password.</li>
+        <li><strong>Statutory Withdrawal &amp; Refunds (§ 356 Abs. 5 BGB / Apple App Store):</strong> Digital in-app content is delivered immediately upon purchase confirmation. Under EU/German consumer law (§ 356 Abs. 5 BGB), the statutory right of withdrawal for digital content expires once performance begins after your express consent and acknowledgment of expiry, subject to Apple's Media Services Terms &amp; Conditions. Billing inquiries and refund requests are handled directly by Apple at <a href="https://reportaproblem.apple.com" rel="noopener noreferrer">https://reportaproblem.apple.com</a>.</li>
       </ul>
 
-      <h3>3. Children's &amp; Family Considerations</h3>
-      <p>Jumpy Alien requests family-friendly ads (<code>MaxAdContentRating.g</code>), does not use behavioral profiling or IDFA tracking, and does not collect personal profiles, names, emails, or precise GPS location data.</p>
+      <p><strong>D. Developer Website &amp; GitHub Pages Hosting (Art. 6(1)(f) GDPR)</strong></p>
+      <ul>
+        <li>Our support, marketing, and privacy pages (<code>https://ahmadrhm-de.github.io/</code>, <code>/privacy.html</code>, <code>/support.html</code>, <code>/app-ads.txt</code>) are hosted via <strong>GitHub Pages</strong>, operated by <strong>GitHub B.V.</strong> and <strong>GitHub, Inc.</strong></li>
+        <li>When you visit these web pages (e.g., by tapping a link in Settings or in the App Store), GitHub automatically processes server connection logs including your IP address, timestamp, requested URL, HTTP status, referrer (if sent by your browser), and browser/OS User-Agent.</li>
+        <li>Legal basis: Art. 6(1)(f) GDPR (legitimate interest in reliable, secure website delivery, DDoS mitigation, and abuse prevention). We do not set marketing or analytics cookies on this website.</li>
+      </ul>
 
-      <h3>4. Your Rights &amp; Choices</h3>
+      <p><strong>E. Support &amp; Privacy Inquiries by Email (Art. 6(1)(b) / Art. 6(1)(f) GDPR)</strong></p>
+      <ul>
+        <li>If you contact <a href="mailto:arstudio.dev1@gmail.com">arstudio.dev1@gmail.com</a>, we process your email address, message content, and any voluntarily shared metadata (such as your Installation ID or Apple receipt reference) solely to handle your request.</li>
+      </ul>
+
+      <h3>3. Recipients &amp; International Data Transfers (Art. 13(1)(e)–(f) GDPR)</h3>
+      <ul>
+        <li><strong>Google Ireland Limited</strong>, Gordon House, Barrow Street, Dublin 4, Ireland (for EEA/UK/Switzerland users), and parent company <strong>Google LLC</strong>, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA (Google Mobile Ads / Google UMP). Transfers to the USA rely on the <strong>EU-US Data Privacy Framework (DPF)</strong> and/or European Commission <strong>Standard Contractual Clauses (SCCs)</strong>.</li>
+        <li><strong>Apple Distribution International Ltd.</strong>, Hollyhill Industrial Estate, Hollyhill, Cork, Ireland, and <strong>Apple Inc.</strong>, One Apple Park Way, Cupertino, CA 95014, USA (App Store distribution &amp; StoreKit 2 payment processing). International transfers are governed by Apple's DPF/SCCs and privacy safeguards.</li>
+        <li><strong>GitHub B.V.</strong>, Prins Bernhardplein 200, 1097 JB Amsterdam, Netherlands, and <strong>GitHub, Inc.</strong>, 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA (GitHub Pages hosting of this website; transfers to the USA rely on the EU-US DPF and/or SCCs).</li>
+      </ul>
+
+      <h3>4. Storage Retention Durations (Art. 13(2)(a) GDPR)</h3>
+      <ul>
+        <li><strong>Local game progress, economy SQLite database &amp; UMP consent:</strong> Stored locally on your device until you change/revoke consent (under <strong>Settings → Privacy Settings / Datenschutz</strong>) or uninstall the app. Non-consumable Apple ID entitlements remain recorded in your Apple account history per Apple's retention terms.</li>
+        <li><strong>Google Mobile Ads / UMP telemetry &amp; GitHub Pages server logs:</strong> Retained by Google and GitHub only for the period required for operational delivery, security, and fraud prevention under their respective privacy policies.</li>
+        <li><strong>Support &amp; privacy emails:</strong> Deleted once your inquiry has been fully resolved, unless statutory commercial/tax retention obligations require longer storage (in which case processing is restricted accordingly).</li>
+      </ul>
+
+      <h3>5. Children's &amp; Family Considerations (Art. 8 GDPR)</h3>
+      <p>
+        Jumpy Alien is a general-audience arcade game (<code>isOrEverWasMadeForKids=false</code>) and is not specifically directed at children below the applicable digital age of consent (16 years under Art. 8 GDPR, or the lower age set by member state law between 13 and 16). It requests family-appropriate ads (<code>MaxAdContentRating.g</code>), does not use behavioral profiling or IDFA tracking, and does not collect personal profiles, names, emails, or precise GPS location data inside the app. Where consent under Art. 6(1)(a) GDPR / § 25(1) TDDDG is required for ad storage, children below the applicable minimum age may only provide such consent with the authorization of a holder of parental responsibility; declining storage leaves only Limited Ads or ad-free gameplay after purchasing Remove Ads.
+      </p>
+
+      <h3>6. Your Rights, Necessity of Provision &amp; Automated Decision-Making (Art. 13(2)(b)–(f), Art. 15–22 GDPR)</h3>
       <ol>
-        <li><strong>Review or revoke ad consent anytime:</strong> Open <strong>Settings → Privacy Settings / Datenschutz</strong> to reopen the Google UMP privacy options form.</li>
-        <li><strong>Privacy Policy link, summary &amp; ad reporting in-app:</strong> Open <strong>Settings</strong> for the direct <strong>Privacy Policy (Online)</strong> link, the built-in summary, and <strong>Report Inappropriate Ad</strong> guidance (plus AdChoices inside ad overlays).</li>
-        <li><strong>Remove non-optional interstitials:</strong> Purchasing <strong>Remove Ads</strong> or the <strong>Cosmic Starter Pack</strong> permanently disables interstitial ads.</li>
-        <li><strong>Restore or support for IAPs:</strong> Use <strong>Restore Purchases</strong> for Apple ID-linked non-consumables, or contact support with your Apple receipt (<code>reportaproblem.apple.com</code>) and the installation ID shown in <strong>Settings</strong>.</li>
+        <li><strong>Review or revoke ad consent anytime (Art. 7(3) GDPR):</strong> Open <strong>Settings → Privacy Settings / Datenschutz</strong> to reopen the Google UMP privacy options form and withdraw or adjust consent with future effect.</li>
+        <li><strong>Data subject rights (Art. 15–21 GDPR):</strong> You have the right of access (Art. 15), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20), and to <strong>object</strong> (Art. 21 GDPR) to processing based on legitimate interests (Art. 6(1)(f) GDPR).</li>
+        <li><strong>Right to lodge a complaint with a supervisory authority (Art. 13(2)(d), Art. 77 GDPR):</strong> You have the right to lodge a complaint with a competent data protection supervisory authority, in particular in the EU Member State of your habitual residence, place of work, or the place of the alleged infringement (in Germany, e.g., the state data protection authority competent for the developer's establishment).</li>
+        <li><strong>No automated decision-making or profiling (Art. 13(2)(f), Art. 22 GDPR):</strong> Jumpy Alien does not perform automated individual decision-making, including profiling, within the meaning of Art. 22 GDPR.</li>
+        <li><strong>Provision requirement (Art. 13(2)(e) GDPR):</strong> Providing personal data is neither statutorily nor contractually mandated to play offline; local storage is technically required for saving progress and delivering IAPs, while ad-storage consent is voluntary.</li>
+        <li><strong>In-app shortcuts &amp; IAP support:</strong> Open <strong>Settings</strong> for the direct <strong>Privacy Policy (Online)</strong> link, the built-in summary, and <strong>Report Inappropriate Ad</strong> guidance (plus AdChoices inside ad overlays). Use <strong>Restore Purchases</strong> for Apple ID-linked non-consumables, or contact support with your Apple receipt (<code>reportaproblem.apple.com</code>) and the Installation ID shown in <strong>Settings</strong>.</li>
       </ol>
 
-      <h3>5. Third-Party Privacy Links</h3>
+      <h3>7. Third-Party Privacy Links</h3>
       <ul>
         <li>Google Privacy Policy: <a href="https://policies.google.com/privacy" rel="noopener noreferrer">https://policies.google.com/privacy</a></li>
         <li>Google AdMob Partner Data Policy: <a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer">https://policies.google.com/technologies/partner-sites</a></li>
         <li>Apple Privacy Policy: <a href="https://www.apple.com/legal/privacy/" rel="noopener noreferrer">https://www.apple.com/legal/privacy/</a></li>
+        <li>GitHub General Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener noreferrer">https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement</a></li>
       </ul>
 
-      <h3>6. Controller, Contact &amp; Official URLs</h3>
+      <h3>8. Official URLs</h3>
       <ul>
         <li><strong>Developer / Controller:</strong> Ahmad Rahman</li>
         <li><strong>Support &amp; Privacy Email:</strong> <a href="mailto:arstudio.dev1@gmail.com">arstudio.dev1@gmail.com</a></li>
@@ -159,11 +192,11 @@
     </section>
 
     <section id="deutsch">
-      <h2>Deutsch — Datenschutzerklärung</h2>
+      <h2>Deutsch — Datenschutzerklärung (Art. 13 DSGVO &amp; § 25 TDDDG)</h2>
 
       <h3>1. Überblick &amp; Verantwortlicher</h3>
       <p>
-        Verantwortlicher für die Datenverarbeitung im Sinne der DSGVO im Zusammenhang mit der iOS-/iPadOS-App <strong>Jumpy Alien</strong> (<code>com.ahmadrahman.jumpyAlien</code>):<br>
+        Verantwortlicher für die Datenverarbeitung im Sinne der DSGVO (Art. 4 Nr. 7 DSGVO) im Zusammenhang mit der iOS-/iPadOS-App <strong>Jumpy Alien</strong> (<code>com.ahmadrahman.jumpyAlien</code>) und dieser Website:<br>
         <strong>Ahmad Rahman</strong> · E-Mail: <a href="mailto:arstudio.dev1@gmail.com">arstudio.dev1@gmail.com</a>
       </p>
       <ul>
@@ -172,20 +205,53 @@
         <li><strong>Nur nicht-personalisierte Werbung (mit regionaler UMP-Einwilligung &amp; Limited Ads):</strong> Anzeigen werden ausschließlich mit <code>AdRequest(nonPersonalizedAds: true)</code> und altersgerechter Einstufung (<code>MaxAdContentRating.g</code>) angefordert. Im EWR/UK/Schweiz erscheint vorab der Einwilligungsdialog von Google UMP, der jederzeit unter <strong>Einstellungen → Datenschutz</strong> geändert oder widerrufen werden kann.</li>
       </ul>
 
-      <h3>2. Verarbeitete Daten im Detail</h3>
+      <h3>2. Verarbeitete Daten, Rechtsgrundlagen &amp; Endgerätezugriff (§ 25 TDDDG / Art. 6 DSGVO)</h3>
       <ul>
-        <li><strong>Lokale Spiel- &amp; Wirtschaftsdaten (Art. 6 Abs. 1 lit. b DSGVO / Vertragserfüllung):</strong> Highscores, Einstellungen und Challenge-Fortschritt liegen lokal in <code>UserDefaults</code>; Münzen, Wiederbelebungskristalle, Skins, Trails und verifizierte StoreKit-2-Transaktionen liegen lokal in isolierten SQLite-Datenbanken (<code>jumpy_alien_release_production.db</code> / <code>sandbox</code>) zusammen mit einer vom Backup ausgeschlossenen zufälligen Installations-UUID (<code>install_uuid</code> / <code>appAccountToken</code> im Verzeichnis <code>NoBackup</code>).</li>
-        <li><strong>Werbung &amp; Einwilligungsverwaltung (Google Mobile Ads &amp; Google UMP, Art. 6 Abs. 1 lit. a / f DSGVO):</strong> Jede Anfragenkonfiguration nutzt <code>nonPersonalizedAds: true</code> und <code>MaxAdContentRating.g</code>. Standard-<strong>Nicht-personalisierte Werbung (NPA)</strong> nutzt bei erforderlicher Speicher-Einwilligung kontextuelle Signale sowie lokale Speicher-IDs für Frequency Capping, Berichte und Betrugsprävention. Lehnst du lokalen Speicher ab und greifen <strong>Limited Ads</strong> (<code>canRequestAds == true</code>), greift Google Mobile Ads nicht auf lokale Speicher-IDs/Cookies zu und führt <strong>kein SDK-seitiges Frequency Capping</strong> durch (nur kontextuelle Auslieferung sowie Sicherheits-/Betrugsprävention). Beim späten Schließen des Startdialogs (auch nach dem 20-Sekunden-Timeout) oder beim Ändern/Widerruf unter <strong>Einstellungen → Datenschutz</strong> werden vorab geladene Anzeigen sofort verworfen und laufende Anfragen veralteter Epochen blockiert. Gemäß den eingebetteten SDK-Privacy-Manifesten (<code>GoogleMobileAdsResources.bundle/PrivacyInfo.xcprivacy</code>, SDK 12.14.0, und <code>UserMessagingPlatformResources.bundle/PrivacyInfo.xcprivacy</code>, UMP 3.1.0) deklariert Google SDK-seitig u. a. Geräte-IDs (<code>NSPrivacyCollectedDataTypeDeviceID</code>), groben Standort (IP-Region), Werbe-/Interaktionsdaten sowie Performance-, Diagnose- und Absturzdaten.</li>
-        <li><strong>In-App-Käufe über Apple StoreKit 2:</strong> Zahlungen laufen direkt über Apple. Dauerhafte Vorteile (<code>remove_ads</code>, <code>double_coins</code>, sowie Mecha-Skin &amp; Werbung-entfernen des <code>starter_bundle</code>) sind an deine Apple-ID gebunden und per <strong>Käufe wiederherstellen</strong> abrufbar; Verbrauchsartikel (Münzpakete &amp; Starter-Münzen/-Kristalle) werden der aktiven Installation gutgeschrieben. Wir erhalten niemals Kreditkartendaten, Rechnungsadresse oder Apple-ID-Passwort.</li>
+        <li><strong>Lokale Spiel- &amp; Wirtschaftsdaten (§ 25 Abs. 2 Nr. 2 TDDDG, Art. 6 Abs. 1 lit. b DSGVO):</strong> Highscores, Einstellungen und Challenge-Fortschritt liegen lokal in <code>UserDefaults</code>; Münzen, Wiederbelebungskristalle, Skins, Trails und verifizierte StoreKit-2-Transaktionen liegen lokal in isolierten SQLite-Datenbanken (<code>jumpy_alien_release_production.db</code> / <code>sandbox</code>) zusammen mit einer vom iCloud-/iTunes-Backup ausgeschlossenen zufälligen Installations-UUID (<code>install_uuid</code> / <code>appAccountToken</code> im Verzeichnis <code>NoBackup</code>) sowie deinem gespeicherten UMP-Einwilligungsstatus. Der Zugriff auf diesen lokalen Gerätespeicher ist gemäß <strong>§ 25 Abs. 2 Nr. 2 TDDDG</strong> unbedingt erforderlich, um die von dir ausdrücklich gewünschten App-Funktionen (Spielstandspeicherung, virtuelle Ökonomie, StoreKit-Transaktionsabgleich und Datenschutzpräferenz) bereitzustellen, sodass hierfür keine gesonderte Speichereinwilligung erforderlich ist.</li>
+        <li><strong>Werbung &amp; Einwilligungsverwaltung (Google Mobile Ads &amp; Google UMP — § 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a / f DSGVO):</strong> Jede Anfragenkonfiguration nutzt <code>nonPersonalizedAds: true</code> und <code>MaxAdContentRating.g</code>. Standard-<strong>Nicht-personalisierte Werbung (NPA)</strong> nutzt im EWR/UK/Schweiz lokale Speicher-IDs für Frequency Capping, aggregierte Berichte und Betrugsprävention ausschließlich auf Grundlage deiner vorherigen Einwilligung nach <strong>§ 25 Abs. 1 TDDDG</strong> i. V. m. <strong>Art. 6 Abs. 1 lit. a DSGVO</strong>. Lehnst du lokalen Speicher ab und greifen <strong>Limited Ads</strong> (<code>canRequestAds == true</code>), greift Google Mobile Ads nicht auf lokale Speicher-IDs/Cookies zu und führt <strong>kein SDK-seitiges Frequency Capping</strong> durch (nur kontextuelle Auslieferung sowie Sicherheits-/Betrugsprävention auf Basis berechtigter Interessen nach Art. 6 Abs. 1 lit. f DSGVO). Beim späten Schließen des Startdialogs (auch nach dem 20-Sekunden-Timeout) oder beim Ändern/Widerruf unter <strong>Einstellungen → Datenschutz</strong> werden vorab geladene Anzeigen sofort verworfen und laufende Anfragen veralteter Epochen blockiert. Gemäß den eingebetteten SDK-Privacy-Manifesten (<code>GoogleMobileAdsResources.bundle/PrivacyInfo.xcprivacy</code>, SDK 12.14.0, und <code>UserMessagingPlatformResources.bundle/PrivacyInfo.xcprivacy</code>, UMP 3.1.0) deklariert Google SDK-seitig u. a. Geräte-IDs (<code>NSPrivacyCollectedDataTypeDeviceID</code>), groben Standort (IP-Region), Werbe-/Interaktionsdaten sowie Performance-, Diagnose- und Absturzdaten.</li>
+        <li><strong>In-App-Käufe über Apple StoreKit 2 &amp; Widerrufshinweis (Art. 6 Abs. 1 lit. b DSGVO, § 356 Abs. 5 BGB):</strong> Zahlungen laufen direkt über Apple. Dauerhafte Vorteile (<code>remove_ads</code>, <code>double_coins</code>, sowie Mecha-Skin &amp; Werbung-entfernen des <code>starter_bundle</code>) sind an deine Apple-ID gebunden und per <strong>Käufe wiederherstellen</strong> abrufbar; Verbrauchsartikel (Münzpakete &amp; Starter-Münzen/-Kristalle) werden der aktiven Installation gutgeschrieben. Wir erhalten niemals Kreditkartendaten, Rechnungsadresse oder Apple-ID-Passwort. Digitale In-App-Inhalte werden nach Kaufbestätigung unmittelbar bereitgestellt; das gesetzliche Widerrufsrecht bei digitalen Inhalten erlischt gemäß <strong>§ 356 Abs. 5 BGB</strong> mit Beginn der Vertragsausführung nach deiner ausdrücklichen Zustimmung und Kenntnisnahme des Erlöschens (maßgeblich sind zudem die Apple Media Services-Bedingungen). Erstattungen bearbeitet Apple direkt unter <a href="https://reportaproblem.apple.com" rel="noopener noreferrer">https://reportaproblem.apple.com</a>.</li>
+        <li><strong>Website-Hosting über GitHub Pages (Art. 6 Abs. 1 lit. f DSGVO):</strong> Diese Informationsseiten (<code>ahmadrhm-de.github.io</code>, <code>privacy.html</code>, <code>support.html</code>, <code>app-ads.txt</code>) werden über <strong>GitHub Pages</strong> bereitgestellt. Beim Aufruf verarbeitet GitHub technisch erforderliche Server-Logdaten (IP-Adresse, Zeitstempel, abgerufene URL, HTTP-Statuscode, Referrer und User-Agent) auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an sicherer, stabiler Bereitstellung und Missbrauchs-/DDoS-Abwehr). Es werden keine Tracking- oder Marketing-Cookies gesetzt.</li>
+        <li><strong>Support-Anfragen per E-Mail (Art. 6 Abs. 1 lit. b / lit. f DSGVO):</strong> Bei Kontaktaufnahme an <a href="mailto:arstudio.dev1@gmail.com">arstudio.dev1@gmail.com</a> verarbeiten wir deine E-Mail-Adresse, den Nachrichteninhalt und ggf. freiwillig mitgeteilte Angaben (z. B. Installations-ID oder Apple-Beleg) ausschließlich zur Bearbeitung deines Anliegens.</li>
       </ul>
 
-      <h3>3. Deine Rechte &amp; Kontakt</h3>
+      <h3>3. Empfänger &amp; Drittlandübermittlungen</h3>
+      <ul>
+        <li><strong>Google Ireland Limited</strong>, Gordon House, Barrow Street, Dublin 4, Irland, sowie verbundenes Unternehmen <strong>Google LLC</strong>, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA (Google Mobile Ads &amp; UMP). Etwaige Übermittlungen in die USA stützen sich auf das <strong>EU-US Data Privacy Framework (DPF)</strong> und/oder <strong>Standardvertragsklauseln (SCC)</strong> der EU-Kommission.</li>
+        <li><strong>Apple Distribution International Ltd.</strong>, Hollyhill Industrial Estate, Hollyhill, Cork, Irland, sowie <strong>Apple Inc.</strong>, One Apple Park Way, Cupertino, CA 95014, USA (App-Store-Vertrieb &amp; StoreKit-2-Zahlungsabwicklung; Absicherung über DPF/SCC gemäß Apple-Datenschutzrichtlinie).</li>
+        <li><strong>GitHub B.V.</strong>, Prins Bernhardplein 200, 1097 JB Amsterdam, Niederlande, sowie <strong>GitHub, Inc.</strong>, 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA (Hosting dieser GitHub-Pages-Website; US-Übermittlungen auf Basis EU-US DPF und/oder SCC).</li>
+      </ul>
+
+      <h3>4. Speicherdauer (Art. 13 Abs. 2 lit. a DSGVO)</h3>
+      <ul>
+        <li><strong>Lokale Spielstände, SQLite-Ökonomie &amp; UMP-Status:</strong> Verbleiben lokal auf deinem Gerät, bis du deine Einwilligung unter <strong>Einstellungen → Datenschutz</strong> änderst bzw. widerrufst oder die App deinstallierst. Dauerhafte Apple-ID-Berechtigungen bleiben in deinem Apple-Account gemäß den Apple-Richtlinien gespeichert.</li>
+        <li><strong>Google-SDK-Telemetrie &amp; GitHub-Server-Logs:</strong> Werden durch Google bzw. GitHub nur so lange gespeichert, wie dies für Betrieb, Sicherheit und Betrugsprävention gemäß deren Datenschutzrichtlinien erforderlich ist.</li>
+        <li><strong>Support-E-Mails:</strong> Werden nach abschließender Erledigung deiner Anfrage gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten (z. B. steuer-/handelsrechtliche Fristen bei kaufbezogenen Vorgängen) entgegenstehen.</li>
+      </ul>
+
+      <h3>5. Alters- &amp; Jugendschutzhinweis (Art. 8 DSGVO)</h3>
       <p>
-        Du kannst erteilte Werbeeinwilligungen jederzeit über <strong>Einstellungen → Datenschutz</strong> in der App widerrufen oder anpassen sowie Auskunft, Berichtigung, Löschung oder Beschwerde bei einer Datenschutzaufsichtsbehörde geltend machen. Lokale App-Daten werden beim Löschen der App vom Gerät entfernt.
+        Jumpy Alien richtet sich an ein allgemeines Publikum (<code>isOrEverWasMadeForKids=false</code>) und nicht gezielt an Kinder unter 16 Jahren (bzw. der jeweils geltenden nationalen Altersgrenze nach Art. 8 DSGVO). In der App werden altersgerechte Anzeigen (<code>MaxAdContentRating.g</code>) ohne Verhaltensprofilierung, ohne IDFA-Tracking und ohne Erhebung von Namen, E-Mail-Adressen oder präzisen GPS-Standorten verwendet. Soweit für Werbespeicher nach Art. 6 Abs. 1 lit. a DSGVO / § 25 Abs. 1 TDDDG eine Einwilligung erforderlich ist, darf diese bei Minderjährigen unterhalb der gesetzlichen Altersgrenze nur durch oder mit Zustimmung der Erziehungsberechtigten erteilt werden; bei Ablehnung stehen Limited Ads bzw. nach Erwerb von „Werbung entfernen“ ein werbefreier Spielbetrieb zur Verfügung.
       </p>
+
+      <h3>6. Deine Rechte, Bereitstellungspflicht &amp; Automatisierte Entscheidungen</h3>
+      <ul>
+        <li><strong>Widerruf von Einwilligungen (Art. 7 Abs. 3 DSGVO):</strong> Du kannst erteilte Werbeeinwilligungen jederzeit mit Wirkung für die Zukunft über <strong>Einstellungen → Datenschutz</strong> in der App widerrufen oder anpassen.</li>
+        <li><strong>Betroffenenrechte (Art. 15–21 DSGVO):</strong> Dir stehen Rechte auf Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) sowie <strong>Widerspruch</strong> (Art. 21 DSGVO) gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 6 Abs. 1 lit. f DSGVO) zu.</li>
+        <li><strong>Beschwerderecht bei einer Aufsichtsbehörde (Art. 13 Abs. 2 lit. d, Art. 77 DSGVO):</strong> Du hast das Recht, dich bei einer Datenschutzaufsichtsbehörde über die Verarbeitung deiner personenbezogenen Daten zu beschweren (z. B. am Ort deines gewöhnlichen Aufenthalts, deines Arbeitsplatzes oder am Sitz des Verantwortlichen in Deutschland).</li>
+        <li><strong>Keine automatisierte Entscheidungsfindung / kein Profiling (Art. 13 Abs. 2 lit. f, Art. 22 DSGVO):</strong> Eine automatisierte Entscheidungsfindung im Einzelfall einschließlich Profiling im Sinne von Art. 22 DSGVO findet nicht statt.</li>
+        <li><strong>Bereitstellungspflicht (Art. 13 Abs. 2 lit. e DSGVO):</strong> Die Bereitstellung personenbezogener Daten ist weder gesetzlich noch vertraglich vorgeschrieben; lokale Speicherung ist technisch für Spielstand und In-App-Käufe erforderlich, während die Einwilligung in Werbespeicher freiwillig ist.</li>
+      </ul>
       <p>
         Kontakt für Datenschutz- und Support-Anfragen: <strong>Ahmad Rahman</strong> · <a href="mailto:arstudio.dev1@gmail.com">arstudio.dev1@gmail.com</a> · <a href="/support.html">Support-Seite</a>
       </p>
+
+      <h3>7. Weiterführende Datenschutzhinweise Dritter</h3>
+      <ul>
+        <li>Google Datenschutzerklärung: <a href="https://policies.google.com/privacy" rel="noopener noreferrer">https://policies.google.com/privacy</a></li>
+        <li>Google AdMob Partner-Richtlinie: <a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer">https://policies.google.com/technologies/partner-sites</a></li>
+        <li>Apple Datenschutzrichtlinie: <a href="https://www.apple.com/legal/privacy/" rel="noopener noreferrer">https://www.apple.com/legal/privacy/</a></li>
+        <li>GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener noreferrer">https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement</a></li>
+      </ul>
     </section>
 
     <footer>
